@@ -1,7 +1,7 @@
 Codecation::Application.routes.draw do
-  get "pages/home"
+  get 'about' => 'codecation#about'
 
-  get "pages/about"
+  get 'home' => 'codecation#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
