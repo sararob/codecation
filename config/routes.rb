@@ -1,5 +1,7 @@
 Codecation::Application.routes.draw do
-  resources :discussions
+  resources :discussions do
+    resources :comments
+  end
 
   devise_for :users
 
