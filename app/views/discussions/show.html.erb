@@ -2,6 +2,7 @@
 <div class="span6 offset3">
 <div class="well">
 <p>
+  <b>Topic:</b>
   <%= @discussion.title %>
 </p>
 
@@ -11,7 +12,7 @@
 </p>
 
 <p>
-  <b>Content:</b>
+  
   <%= @discussion.content %>
 </p>
 <%= link_to 'Edit', edit_discussion_path(@discussion) %> |

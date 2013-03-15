@@ -1,8 +1,23 @@
 <tr>
     <td><%= discussion.title %></td>
-    <td><%= discussion.language %></td>
-    <td><%= discussion.content %></td>
-    <td><%= link_to 'View', discussion %></td>
+    
+	<% case discussion.language.downcase %>
+	<% when "ruby" %>
+	<td><%= link_to 'Ruby', 'http://www.ruby-lang.org/en/' %></td>
+	<% when "php" %>
+	<td><%= link_to 'PHP', 'http://php.net/' %></td>
+	<% when "python" %>
+	<td><%= link_to 'Python', 'http://www.python.org/' %></td>
+	<% when "jquery" %>
+	<td><%= link_to 'jQuery', 'http://jquery.com/' %></td>
+	<% else %>
+	<td><%= language.content %></td>
+	<% end %>
+	
+    <td><%= link_to discussion.content, discussion %></td>
+	<% if current_user == discussion.user %>
     <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
     <td><%= link_to 'Delete', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+	<% end %>
   </tr>

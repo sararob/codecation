@@ -1,4 +1,6 @@
 class DiscussionsController < ApplicationController
+  
+  before_filter :authenticate_user!, except: [:index]
   # GET /discussions
   # GET /discussions.json
   def index
@@ -24,7 +26,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/new
   # GET /discussions/new.json
   def new
-    @discussion = Discussion.new
+    @discussion = current_user.discussions.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/1/edit
   def edit
-    @discussion = Discussion.find(params[:id])
+    @discussion = current_user.discussions.find(params[:id])
   end
 
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Discussion.new(params[:discussion])
+    @discussion = current_user.discussions.new(params[:discussion])
 
     respond_to do |format|
       if @discussion.save
@@ -56,7 +58,7 @@ class DiscussionsController < ApplicationController
   # PUT /discussions/1
   # PUT /discussions/1.json
   def update
-    @discussion = Discussion.find(params[:id])
+    @discussion = current_user.discussions.find(params[:id])
 
     respond_to do |format|
       if @discussion.update_attributes(params[:discussion])

@@ -1,5 +1,7 @@
 <% if user_signed_in? %>
-	<h2>You're logged in! Start discussing your codeventure.</h2>
+	<h2>You're logged in! Start  
+	<%= link_to "discussing", discussions_path %>
+	your codeventure.</h2>
 <% else %>
 
 <div class="hero-unit">
