@@ -1,0 +1,21 @@
+<div class="row">
+<div class="span6 offset3">
+<div class="well">
+<p>
+  <%= @discussion.title %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @discussion.language %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @discussion.content %>
+</p>
+<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+<%= link_to 'Back', discussions_path %>
+</div>
+</div>
+</div>

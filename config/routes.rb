@@ -1,4 +1,7 @@
 Codecation::Application.routes.draw do
+  resources :discussions
+
+
   devise_for :users
 
   get 'about' => 'pages#about'

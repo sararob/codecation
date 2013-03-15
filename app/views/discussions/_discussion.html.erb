@@ -1,0 +1,8 @@
+<tr>
+    <td><%= discussion.title %></td>
+    <td><%= discussion.language %></td>
+    <td><%= discussion.content %></td>
+    <td><%= link_to 'View', discussion %></td>
+    <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
+    <td><%= link_to 'Delete', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
