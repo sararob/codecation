@@ -23,7 +23,7 @@
 <b style="font-size:110%">Comments</b>
 <% @discussion.comments.each do |comment| %>
 	<p>
-		<b><%= comment.commenter %>:</b>
+		<b><%= comment.user.name %>:</b>
 		<%= comment.body %>
 	</p>
 <% end %>
@@ -32,10 +32,7 @@
 
 <b style="font-size:110%">Add a comment:</b>
 <%= form_for ([@discussion, @discussion.comments.build]) do |f| %>
-	<div class="field">
-		<%= f.label :commenter, "Name" %>
-		<%= f.text_field :commenter %>
-	</div>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 	<div class="field">
 		<%= f.label :body, "Comment" %>
 		<%= f.text_area :body, :rows => "5" %>
